@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'django_admin_bootstrapped',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,6 +39,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'signups',
     'south',
+    'authentication',
+    'djangular',
+    'rest_framework',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -47,6 +51,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'djangular.middleware.AngularJsonVulnerabilityMiddleware',
 )
 
 ROOT_URLCONF = 'mvp_landing.urls'
@@ -83,9 +88,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
-
-
 # Template location
 TEMPLATE_DIRS = (
     os.path.join(os.path.dirname(BASE_DIR), "static", "templates"),
@@ -97,5 +99,6 @@ if DEBUG:
     MEDIA_ROOT =  os.path.join(os.path.dirname(BASE_DIR), "static", "media")
     STATICFILES_DIRS = (
         os.path.join(os.path.dirname(BASE_DIR), "static", "static"),
+        )
 
-    )
+AUTH_USER_MODEL = 'authentication.Account'
