@@ -24,3 +24,5 @@ Dependencies Required:
 <li>static3==0.5.1</li>
 <li>wsgiref==0.1.2</li>
 </ul>
+
+$ pip install -r requirements.txt (required to install dependencies)
